@@ -1,0 +1,20 @@
+{
+  "name": "node-clean-project",
+  "version": "1.0.0",
+  "description": "Base Node.JS project using a clean architecture",
+  "scripts": {
+    "start": "tsc -b & node dist/main.js",
+    "dev": "ts-node src/main.ts",
+    "dev:watch": "nodemon --exec ts-node src/main.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.4.1",
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
