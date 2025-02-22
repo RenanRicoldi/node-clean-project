@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Base Node.JS project using a clean architecture",
   "scripts": {
-    "start": "tsc -b & node dist/main.js",
+    "build": "tsc",
+    "start": "node dist/main.js",
     "dev": "ts-node src/main.ts",
-    "dev:watch": "nodemon --exec ts-node src/main.ts",
+    "dev:watch": "nodemon --exec 'ts-node' src/main.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
