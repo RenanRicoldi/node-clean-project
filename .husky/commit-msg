@@ -1,0 +1,3 @@
+. "$(dirname "$0")/init.sh"
+
+pnpm dlx commitlint --edit "$1"

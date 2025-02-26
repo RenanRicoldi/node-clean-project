@@ -11,22 +11,37 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prettier": "prettier --ignore-path .gitignore --write \"./src/**/*.+(js|ts|json)\"",
-    "prettier:fix": "prettier --write src"
+    "prettier:fix": "prettier --write src",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.4.1",
   "devDependencies": {
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
     "@eslint/js": "^9.20.0",
     "eslint": "^9.20.1",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
     "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
     "nodemon": "^3.1.9",
     "prettier": "^3.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.24.1"
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,json}": [
+      "eslint --fix",
+      "prettier  --ignore-path .gitignore --write"
+    ]
+  },
+  "commitlint": {
+    "extends": ["@commitlint/config-conventional"]
   }
+  
 }
