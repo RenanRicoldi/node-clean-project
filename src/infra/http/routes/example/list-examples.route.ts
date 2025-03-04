@@ -12,7 +12,9 @@ function handler(_request: HttpRequest): HttpResponse {
 }
 
 export const ListExamplesRoute = new HttpRoute(
+  1,
+  'examples',
   HttpMethods.GET,
-  '/example',
+  '/',
   handler,
 )

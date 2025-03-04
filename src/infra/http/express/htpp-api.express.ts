@@ -24,7 +24,7 @@ export class ApiExpress implements IHttpApi {
 
   private setupRoutes(routes: IHttpRoute[]): void {
     routes.forEach((route) => {
-      this.app[route.method](route.path, this.adaptRoute(route.handler))
+      this.app[route.method](route.getPath(), this.adaptRoute(route.handler))
     })
   }
 
