@@ -7,10 +7,15 @@
     "sourceMap": true,
     "declaration": true,
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "allowSyntheticDefaultImports": true,
     "outDir": "./dist",
     "baseUrl": "./src",
     "incremental": true,
     "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "paths": {
+      "*" : ["*"]
+    }
   }
 }
