@@ -4,13 +4,17 @@ import routes from '../infra/http/routes'
 import 'reflect-metadata'
 import { container } from 'tsyringe'
 
+/**
+ * Configures the dependency injection container for the application.
+ * Registers the routes and HTTP API implementation.
+ */
 export function setupDependencyInjection(): void {
-  // Registra as rotas
+  // Register the routes
   container.register('Routes', {
     useValue: routes,
   })
 
-  // Registra a implementação da API HTTP
+  // Register the HTTP API implementation
   container.register<IHttpApi>('HttpApi', {
     useClass: ApiExpress,
   })
