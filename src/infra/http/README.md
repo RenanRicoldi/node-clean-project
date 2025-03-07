@@ -14,6 +14,7 @@ A pasta `http` contém toda a implementação relacionada ao protocolo HTTP no p
 http/
 ├── enums/           # Enumerações relacionadas a HTTP (métodos, status codes)
 ├── express/         # Implementação específica do framework Express
+├── fastify/         # Implementação específica do framework Fastify
 ├── interfaces/      # Interfaces que definem contratos para implementações HTTP
 └── routes/          # Definições de rotas e manipuladores de requisições
 ```
@@ -26,6 +27,15 @@ As interfaces principais que definem os contratos para implementações HTTP sã
 - `IHttpRoute`: Interface para definição de rotas
 - `HttpRequest`: Interface para representação de requisições HTTP
 - `HttpResponse`: Interface para representação de respostas HTTP
+
+## Frameworks Suportados
+
+Atualmente, o projeto suporta os seguintes frameworks HTTP:
+
+1. **Express**: Implementação padrão, escolhida por sua simplicidade e ampla adoção
+2. **Fastify**: Alternativa de alto desempenho com validação integrada
+
+Para alternar entre os frameworks, modifique o arquivo `src/config/dependency-injection.config.ts`.
 
 ## Como Criar uma Nova Rota
 
