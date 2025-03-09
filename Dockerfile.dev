@@ -1,0 +1,18 @@
+FROM node:22.14.0-alpine
+WORKDIR /app
+
+# Instala pnpm e ferramentas de desenvolvimento
+RUN npm install -g pnpm nodemon ts-node
+
+# Copia arquivos de dependências
+COPY package.json pnpm-lock.yaml ./
+
+# Instala todas as dependências (incluindo devDependencies)
+RUN pnpm install
+
+# Adicione o PATH para binários locais
+ENV PATH /app/node_modules/.bin:$PATH
+
+# Expõe a porta e configura o comando de desenvolvimento
+EXPOSE 3000
+CMD ["pnpm", "run", "dev:watch"] 
