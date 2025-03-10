@@ -93,3 +93,45 @@ http://localhost:3000
 ├── .env          # Variáveis de ambiente
 └── package.json  # Configurações do projeto
 ```
+
+## SonarQube
+
+Este projeto está configurado para rodar o SonarQube para análise de qualidade de código. O SonarQube ajuda a identificar problemas de qualidade, vulnerabilidades de segurança, bugs potenciais e dívidas técnicas no código.
+
+### Executando o SonarQube
+
+O SonarQube local está configurado no arquivo `docker-compose.development.yml`. Para iniciar:
+
+```bash
+docker-compose -f docker-compose.development.yml up -d
+```
+
+Após alguns minutos, o SonarQube estará disponível em http://localhost:9000.
+
+### SonarQube Scanner
+
+Para rodar o SonarQube scanner, você precisa:
+
+1. **Java**: O SonarQube Scanner requer Java 11 ou superior instalado em sua máquina.
+   - Verifique se o Java está instalado: `java -version`
+   - Baixe e instale o Java em: https://adoptium.net/ se necessário
+
+2. **Token do SonarQube**: Você precisa gerar um token de autenticação no SonarQube.
+   - Acesse o SonarQube em http://localhost:9000
+   - Faça login com as credenciais padrão (admin/admin)
+   - Vá para "My Account" > "Security" > "Generate Token"
+   - Adicione o token gerado ao arquivo `.env`:
+     ```
+     SONAR_TOKEN=seu_token_aqui
+     ```
+
+Para executar a análise do código:
+
+```bash
+sonar-scanner
+```
+
+### Extensão SonarQube IDE para VSCode
+
+Para uma melhor experiência de desenvolvimento, recomendamos a extensão SonarQube IDE para VSCode.
+Com esta configuração, o SonarLint destacará problemas de qualidade de código diretamente no seu editor, usando as mesmas regras configuradas no seu servidor SonarQube.

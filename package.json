@@ -12,7 +12,8 @@
     "lint:fix": "eslint . --fix",
     "prettier": "prettier --ignore-path .gitignore --write \"./src/**/*.+(js|ts|json)\"",
     "prettier:fix": "prettier --write src",
-    "prepare": "husky"
+    "prepare": "husky",
+    "sonar": "dotenv -e .env -- sonar-scanner -Dsonar.token=sqp_93a5e9e9ca44b4dae6e863e16ae61f3bd993f4e9"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "@commitlint/config-conventional": "^19.7.1",
     "@eslint/js": "^9.20.0",
     "@types/express": "^5.0.0",
+    "dotenv-cli": "^8.0.0",
     "eslint": "^9.20.1",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
@@ -33,6 +35,7 @@
     "prettier": "^3.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3",
+    "sonar-scanner": "^3.1.0",
     "typescript-eslint": "^8.24.1"
   },
   "lint-staged": {

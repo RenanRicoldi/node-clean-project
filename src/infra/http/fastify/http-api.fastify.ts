@@ -26,7 +26,7 @@ export class ApiFastify implements IHttpApi {
    *
    * @param {IHttpRoute[]} routes - Array of HTTP routes to be registered
    */
-  constructor(@inject('Routes') private routes: IHttpRoute[]) {
+  constructor(@inject('Routes') private readonly routes: IHttpRoute[]) {
     this.setupServer()
     this.setupMiddlewares()
     this.setupRoutes(routes)
@@ -67,7 +67,7 @@ export class ApiFastify implements IHttpApi {
         done: (err: Error | null, result: object) => void,
       ) => {
         try {
-          const json = JSON.parse(body as string)
+          const json = JSON.parse(body)
           done(null, json)
         } catch (err) {
           done(err as Error, undefined)
@@ -139,12 +139,12 @@ export class ApiFastify implements IHttpApi {
 
     // Display routes grouped by domain
     Object.keys(routesByDomain)
-      .sort()
+      .sort((a, b) => a.localeCompare(b))
       .forEach((domain) => {
         console.log(`\n🔹 Domain: ${domain}`)
 
         // Sort routes by path for easier reading
-        routesByDomain[domain]
+        ;[...routesByDomain[domain]]
           .sort((a, b) => a.path.localeCompare(b.path))
           .forEach(({ method, path }) => {
             console.log(`  ${method.padEnd(6)} ${path}`)

@@ -21,7 +21,7 @@ export class ApiExpress implements IHttpApi {
    *
    * @param {IHttpRoute[]} routes - Array of HTTP routes to be registered
    */
-  constructor(@inject('Routes') private routes: IHttpRoute[]) {
+  constructor(@inject('Routes') private readonly routes: IHttpRoute[]) {
     this.setupApp()
     this.setupMiddlewares()
     this.setupRoutes(routes)
@@ -88,12 +88,12 @@ export class ApiExpress implements IHttpApi {
 
     // Display routes grouped by domain
     Object.keys(routesByDomain)
-      .sort()
+      .sort((a, b) => a.localeCompare(b))
       .forEach((domain) => {
         console.log(`\n🔹 Domain: ${domain}`)
 
         // Sort routes by path for easier reading
-        routesByDomain[domain]
+        ;[...routesByDomain[domain]]
           .sort((a, b) => a.path.localeCompare(b.path))
           .forEach(({ method, path }) => {
             console.log(`  ${method.padEnd(6)} ${path}`)
